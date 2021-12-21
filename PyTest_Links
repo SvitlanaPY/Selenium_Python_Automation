@@ -1,0 +1,27 @@
+Тестирование с помощью PyTest
+Статья про PyTest: https://habr.com/ru/post/269759/
+Документация PyTest: https://docs.pytest.org/en/latest/
+Conventions for Python test discovery: https://docs.pytest.org/en/stable/goodpractices.html
+Полезные флаги pytest: https://gist.github.com/amatellanes/12136508b816469678c2
+
+
+Использование фикстур в PyTest
+Фикстуры — определение: https://en.wikipedia.org/wiki/Test_fixture#Software
+Фикстуры в PyTest: https://docs.pytest.org/en/stable/fixture.html
+setup и teardown методы: https://docs.pytest.org/en/stable/xunit_setup.html
+https://habr.com/ru/company/yandex/blog/242795/
+https://medium.com/@dmrlx/%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-pytest-cc6175c7d0dc
+Skip and xfail: dealing with tests that cannot succeed: https://pytest.org/en/stable/skipping.html
+
+
+Параметризация, конфигурирование, плагины
+Parametrizing fixtures and test functions: https://docs.pytest.org/en/stable/parametrize.html
+Инструкции по установке geckodriver: https://selenium-python.com/install-geckodriver
+Передача параметров в PyTest из командной строки: https://docs.pytest.org/en/stable/example/simple.html?highlight=addoption
+Список плагинов PyTest: https://docs.pytest.org/en/stable/plugins.html
+Полный список доступных плагинов с описаниями: https://plugincompat.herokuapp.com/
+Настройка вывода PyTest: https://docs.pytest.org/en/stable/usage.html#modifying-python-traceback-printing
+
+
+https://habr.com/ru/post/426699/
+

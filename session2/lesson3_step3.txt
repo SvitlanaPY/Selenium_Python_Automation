@@ -1,0 +1,8 @@
+"""
+Задание: типы модальных окон
+Tипы модальных окон в браузере и методы WebDriver для взаимодействия с ними:
+
+alert: accept
+confirm: accept, dismiss
+prompt: accept, dismiss, send_keys
+"""
