@@ -83,7 +83,7 @@ NoSuchElementException... Unable to locate element: {"method":"tag name","select
 В дальнейших уроках мы рассмотрим более красивые и эффективные способы решения этой проблемы,
 а пока будем использовать time.sleep() из-за его простоты и наглядности.
 """
-
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 import time
 
@@ -93,15 +93,15 @@ try:
     browser.get(link)
 
     # Ваш код, который заполняет обязательные поля
-    input1 = browser.find_element_by_class_name("form-control.first")
+    input1 = browser.find_element(By.CLASS_NAME, "form-control.first")
     input1.send_keys("Ivan")
-    input2 = browser.find_element_by_class_name("form-control.second")
+    input2 = browser.find_element(By.CLASS_NAME, "form-control.second")
     input2.send_keys("Popovych")
-    input3 = browser.find_element_by_class_name("form-control.third")
+    input3 = browser.find_element(By.CLASS_NAME, "form-control.third")
     input3.send_keys("ivan_popovych@gmail.com")
 
     # Отправляем заполненную форму
-    button = browser.find_element_by_css_selector("button.btn")
+    button = browser.find_element(By.CSS_SELECTOR, "button.btn")
     button.click()
 
     # Проверяем, что смогли зарегистрироваться
@@ -109,7 +109,7 @@ try:
     time.sleep(3)
 
     # находим элемент, содержащий текст
-    welcome_text_elt = browser.find_element_by_tag_name("h1")
+    welcome_text_elt = browser.find_element(By.TAG_NAME, "h1")
 
     # записываем в переменную welcome_text текст из элемента welcome_text_elt
     welcome_text = welcome_text_elt.text

@@ -27,15 +27,15 @@ try:
     browser = webdriver.Chrome()
     browser.get(link)
 
-    input1 = browser.find_element_by_tag_name("input")
+    input1 = browser.find_element(By.TAG_NAME, "input")
     input1.send_keys("Ivan")
-    input2 = browser.find_element_by_name("last_name")
+    input2 = browser.find_element(By.NAME, "last_name")
     input2.send_keys("Popovych")
-    input3 = browser.find_element_by_class_name("form-control.city")
+    input3 = browser.find_element(By.CLASS_NAME, "form-control.city")
     input3.send_keys("Lviv")
-    input4 = browser.find_element_by_id("country")
+    input4 = browser.find_element(By.ID, "country")
     input4.send_keys("Ukraine")
-    button = browser.find_element_by_xpath('//button[text()="Submit"]')
+    button = browser.find_element(By.XPATH, '//button[text()="Submit"]')
     button.click()
 
 finally:

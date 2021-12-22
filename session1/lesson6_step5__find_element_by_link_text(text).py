@@ -45,6 +45,7 @@ https://selenium-python.readthedocs.io/locating-elements.html#locating-hyperlink
 import math
 import time
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 text = str(math.ceil(math.pow(math.pi, math.e) * 10000))
 print(text)
@@ -60,21 +61,21 @@ try:
     # В качестве аргумента в метод find_element_by_link_text(text) передается такой текст, ссылку с которым мы хотим найти.
     # находим элемент по полному соответствию текста - Это тот самый текст,
     # который содержится между открывающим и закрывающим тегом <a> вот тут </a>
-    link = browser.find_element_by_link_text(text)
+    link = browser.find_element(By.LINK_TEXT, text)
     # в link - ссылка по найденому текста
     time.sleep(5)
     # кликаем по найденной ссылке
     link.click()
     
-    input1 = browser.find_element_by_tag_name("input")
+    input1 = browser.find_element(By.TAG_NAME, "input")
     input1.send_keys("Ivan")
-    input2 = browser.find_element_by_name("last_name")
+    input2 = browser.find_element(By.NAME, "last_name")
     input2.send_keys("Popovych")
-    input3 = browser.find_element_by_class_name("form-control.city")
+    input3 = browser.find_element(By.CLASS_NAME, "form-control.city")
     input3.send_keys("Lviv")
-    input4 = browser.find_element_by_id("country")
+    input4 = browser.find_element(By.ID, "country")
     input4.send_keys("Ukraine")
-    button = browser.find_element_by_css_selector("button.btn")
+    button = browser.find_element(By.CSS_SELECTOR, "button.btn")
     button.click()
 
 finally:

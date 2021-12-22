@@ -36,18 +36,19 @@ finally:
 """
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import time
 
 try:
     browser = webdriver.Chrome()
     browser.get("http://suninjuly.github.io/huge_form.html")
-    elements = browser.find_elements_by_tag_name("input[type=\"text\"]")
+    elements = browser.find_element(By.TAG_NAME, "input[type=\"text\"]")
     print(elements)
     for element in elements:
         print(element)
         element.send_keys("Ivan")
 
-    button = browser.find_element_by_css_selector("button.btn")
+    button = browser.find_element(By.CSS_SELECTOR, "button.btn")
     button.click()
 
 finally:

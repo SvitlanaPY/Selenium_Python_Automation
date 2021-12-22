@@ -39,7 +39,7 @@
 
 Кстати! Не удаляйте код после прохождения задания, он нам пригодится в будущих модулях.
 """
-
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 import time
 
@@ -50,15 +50,15 @@ try:
     browser.get(link)
 
     # Ваш код, который заполняет обязательные поля
-    input1 = browser.find_element_by_xpath('//input[@class="form-control first" and @required]')
+    input1 = browser.find_element(By.XPATH, '//input[@class="form-control first" and @required]')
     input1.send_keys("Ivan")
-    input2 = browser.find_element_by_xpath('//input[@class="form-control second" and @required]')
+    input2 = browser.find_element(By.XPATH, '//input[@class="form-control second" and @required]')
     input2.send_keys("Popovych")
-    input3 = browser.find_element_by_xpath('//input[@class="form-control third" and @required]')
+    input3 = browser.find_element(By.XPATH, '//input[@class="form-control third" and @required]')
     input3.send_keys("ivan_popovych@gmail.com")
 
     # Отправляем заполненную форму
-    button = browser.find_element_by_css_selector("button.btn")
+    button = browser.find_element(By.CSS_SELECTOR, "button.btn")
     button.click()
 
     # Проверяем, что смогли зарегистрироваться
@@ -66,7 +66,7 @@ try:
     time.sleep(3)
 
     # находим элемент, содержащий текст
-    welcome_text_elt = browser.find_element_by_tag_name("h1")
+    welcome_text_elt = browser.find_element(By.TAG_NAME, "h1")
 
     # записываем в переменную welcome_text текст из элемента welcome_text_elt
     welcome_text = welcome_text_elt.text
