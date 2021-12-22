@@ -9,7 +9,7 @@
 Запустим все наши тесты из класса TestMainPage1 в одном браузере для экономии времени,
 задав scope="class" в фикстуре browser:
 
-test_fixture1_5.py
+test_fixture1_5_scope_function.py
 
 import pytest
 from selenium import webdriver

@@ -46,7 +46,7 @@ JavaScript устанавливает атрибут disabled у кнопки Su
 
 <button type="submit" class="btn btn-default" disabled>Submit</button>
 """
-
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 import time
 
@@ -56,7 +56,7 @@ try:
     browser_ = webdriver.Chrome()
     browser_.get(link)
 
-    people_radio = browser_.find_element_by_id("peopleRule")
+    people_radio = browser_.find_element(By.ID, "peopleRule")
     people_radio_checked = people_radio.get_attribute("checked")
     print("value of people radio: ", people_radio_checked)
     # value of people radio:  true
@@ -71,14 +71,14 @@ try:
     print(people_radio.get_attribute("href"), type(people_radio.get_attribute("href")))
     # Напечатает None, т.к. аттрибут не существует. И это не строка а None-значение.
 
-    robots_radio = browser_.find_element_by_id("robotsRule")
+    robots_radio = browser_.find_element(By.ID, "robotsRule")
     robots_radio_checked = robots_radio.get_attribute("checked")
     print("value of robots radio: ", robots_radio_checked)
     # value of robots radio:  None
     assert robots_radio_checked is None
 
     # проверяем значение атрибута disabled у кнопки Submit
-    button = browser_.find_element_by_css_selector('.btn')
+    button = browser_.find_element(By.CSS_SELECTOR, '.btn')
     button_disabled = button.get_attribute("disabled")
     print("value of button Submit: ", button_disabled)
     assert button_disabled is None

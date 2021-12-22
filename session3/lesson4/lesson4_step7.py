@@ -1,7 +1,10 @@
 """
 Задание: область видимости фикстур
-У нас есть набор тестов, который использует несколько фикстур. Посчитайте, сколько смайликов будет напечатано при выполнении этого тестового класса?
 
+У нас есть набор тестов, который использует несколько фикстур.
+Посчитайте, сколько смайликов будет напечатано при выполнении этого тестового класса?
+
+"""
 import pytest
 
 
@@ -12,7 +15,7 @@ def prepare_faces():
     print(":3", "\n")
 
 
-@pytest.fixture()
+@pytest.fixture
 def very_important_fixture():
     print(":)", "\n")
 
@@ -22,11 +25,14 @@ def print_smiling_faces():
     print(":-Р", "\n")
 
 
-class TestPrintSmilingFaces():
+class TestPrintSmilingFaces:
     def test_first_smiling_faces(self, prepare_faces, very_important_fixture):
+        pass
         # какие-то проверки
 
     def test_second_smiling_faces(self, prepare_faces):
+        pass
         # какие-то проверки
 
-"""
+
+# ВІДПОВІДЬ: 5

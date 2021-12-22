@@ -16,7 +16,7 @@ class TestMainPage2:
 
     def test_guest_should_see_login_link1(self):
         self.browser.get(link)
-        self.browser.find_element_by_css_selector("#login_link")
+        self.browser.find_element_by_css_selector("#login_link1")
 
     def test_guest_should_see_basket_link_on_the_main_page1(self):
         self.browser.get(link)
@@ -24,7 +24,7 @@ class TestMainPage2:
 
     def test_guest_should_see_login_link2(self):
         self.browser.get(link)
-        self.browser.find_element_by_css_selector("#login_link")
+        self.browser.find_element_by_css_selector("#login_link2")
 
     def test_guest_should_see_basket_link_on_the_main_page2(self):
         self.browser.get(link)

@@ -34,7 +34,7 @@ def calc(x):
 вы увидите окно с числом.
 Скопируйте его в поле ниже.
 """
-
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 import time
 import math
@@ -56,7 +56,7 @@ try:
     browser.get(link)
 
     # находим элемент, содержащий значение для переменной 'x'
-    x_element = browser.find_element_by_xpath('//span[@id="input_value"]')
+    x_element = browser.find_element(By.XPATH, '//span[@id="input_value"]')
     print(x_element)
 
     # записываем в переменную 'x' текст из элемента x_element
@@ -68,19 +68,19 @@ try:
     print("y= ", y)
 
     # вводим значение 'y' в текстовое поле
-    input1 = browser.find_element_by_xpath('//input[@id="answer" and @class="form-control" and @required]')
+    input1 = browser.find_element(By.XPATH, '//input[@id="answer" and @class="form-control" and @required]')
     input1.send_keys(y)
 
     # отмечаем checkbox "I'm the robot":
-    option_checkbox = browser.find_element_by_xpath('//input[@id="robotCheckbox" and @class="form-check-input" and @required]')
+    option_checkbox = browser.find_element(By.XPATH, '//input[@id="robotCheckbox" and @class="form-check-input" and @required]')
     option_checkbox.click()
 
     # выбираем radiobutton "Robots rule!":
-    option_radiobutton = browser.find_element_by_xpath('//label[@class="form-check-label" and text()="Robots rule"]')
+    option_radiobutton = browser.find_element(By.XPATH, '//label[@class="form-check-label" and text()="Robots rule"]')
     option_radiobutton.click()
 
     # отправляем заполненную форму
-    button = browser.find_element_by_xpath('//button[@class="btn btn-default"  and text()="Submit"]')
+    button = browser.find_element(By.XPATH, '//button[@class="btn btn-default"  and text()="Submit"]')
     button.click()
 
 finally:

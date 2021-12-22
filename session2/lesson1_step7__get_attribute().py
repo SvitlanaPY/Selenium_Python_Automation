@@ -19,7 +19,7 @@
 вы увидите окно с числом.
 Скопируйте его в поле ниже и нажмите кнопку "Submit", чтобы получить баллы за задание.
 """
-
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 import time
 import math
@@ -33,7 +33,7 @@ try:
     browser = webdriver.Chrome()
     browser.get(link)
 
-    sunduk_image = browser.find_element_by_id("treasure")
+    sunduk_image = browser.find_element(By.ID, "treasure")
     img_valuex = sunduk_image.get_attribute("valuex")
     print("value of image valuex: ", img_valuex, type(img_valuex))
     # value of image valuex:  188 <class 'str'>
@@ -42,19 +42,19 @@ try:
     print("value_x= ", value_x)
 
     # вводим значение 'value_x' в текстовое поле
-    input1 = browser.find_element_by_xpath('//input[@id="answer" and @required]')
+    input1 = browser.find_element(By.XPATH, '//input[@id="answer" and @required]')
     input1.send_keys(value_x)
 
     # отмечаем checkbox "I'm the robot":
-    option_checkbox = browser.find_element_by_xpath('//input[@id="robotCheckbox" and @required]')
+    option_checkbox = browser.find_element(By.XPATH, '//input[@id="robotCheckbox" and @required]')
     option_checkbox.click()
 
     # выбираем radiobutton "Robots rule!":
-    option_radiobutton = browser.find_element_by_xpath('//input[@id="robotsRule" and @value="robots"]')
+    option_radiobutton = browser.find_element(By.XPATH, '//input[@id="robotsRule" and @value="robots"]')
     option_radiobutton.click()
 
     # отправляем заполненную форму
-    button = browser.find_element_by_xpath('//button[@class="btn btn-default"  and text()="Submit"]')
+    button = browser.find_element(By.XPATH, '//button[@class="btn btn-default"  and text()="Submit"]')
     button.click()
 
 finally:

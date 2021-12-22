@@ -25,3 +25,6 @@ Parametrizing fixtures and test functions: https://docs.pytest.org/en/stable/par
 
 https://habr.com/ru/post/426699/
 
+Дополнительные материалы про фикстуры:
+https://habr.com/ru/company/yandex/blog/242795/
+https://docs.pytest.org/en/stable/fixture.html
