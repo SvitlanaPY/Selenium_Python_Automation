@@ -16,7 +16,7 @@ link = "http://selenium1py.pythonanywhere.com/"
 
 
 @pytest.fixture
-def browser():
+def browser_():
     print("\nstart browser for test..")
     browser = webdriver.Chrome()
     return browser

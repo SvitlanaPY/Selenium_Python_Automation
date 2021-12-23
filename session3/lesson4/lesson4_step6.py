@@ -6,6 +6,7 @@
 
 test_fixture_autouse.py
 
+
 import pytest
 from selenium import webdriver
 
@@ -50,4 +51,61 @@ session3_lesson4_step6_fixture1.png
 Дополнительные материалы про фикстуры, которые мы настоятельно советуем почитать, приведены ниже:
 https://habr.com/ru/company/yandex/blog/242795/
 https://docs.pytest.org/en/stable/fixture.html
+
+# scope="class":
+# фікстура @pytest.fixture(scope="class") викликається ОДИН раз,
+# її результат зберігається і використовується для ВСІХ методів класу.
+# Якщо буде два класи, то фікстура викликається ДВА рази - по разу на кожен клас.
+
+# scope="function":
+# якщо область видимості function, то фікстура @pytest.fixture(scope="function")
+# викликається на КОЖНУ функцію / метод.
+
+# scope="module":
+# module - це один файл з тестами
+
+# scope="session":
+# це один прогон ВСІХ тестів (може бути кілька файлів)
+
 """
+
+import pytest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+link = "http://selenium1py.pythonanywhere.com/"
+
+
+@pytest.fixture
+def browser_():
+    print("\nstart browser for test..")
+    browser = webdriver.Chrome()
+    yield browser
+    print("\nquit browser..")
+    browser.quit()
+
+
+@pytest.fixture(autouse=True)
+def prepare_data():
+    print()
+    print("preparing some critical data for every test")
+
+
+class TestMainPage1():
+    def test_guest_should_see_login_link1(self, browser):
+        # не передаём как параметр фикстуру prepare_data, но она все равно выполняется
+        browser.get(link)
+        browser.find_element(By.CSS_SELECTOR, "#login_link")
+
+    def test_guest_should_see_basket_link_on_the_main_page1(self, browser):
+        browser.get(link)
+        browser.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
+
+    def test_guest_should_see_login_link2(self, browser):
+        # не передаём как параметр фикстуру prepare_data, но она все равно выполняется
+        browser.get(link)
+        browser.find_element(By.CSS_SELECTOR, "#login_link")
+
+    def test_guest_should_see_basket_link_on_the_main_page2(self, browser):
+        browser.get(link)
+        browser.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")

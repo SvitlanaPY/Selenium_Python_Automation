@@ -1,6 +1,7 @@
 # scope="function":
 # якщо область видимості function -
-# то фікстура @pytest.fixture(scope="function") викликається на КОЖНУ функцію / метод.
+# то фікстура @pytest.fixture(scope="function") викликається на КОЖНУ функцію/ метод.
+
 
 import pytest
 from selenium import webdriver
@@ -17,7 +18,6 @@ def browser_():
     print("\nquit browser..")
     browser.quit()
 
-#
 
 class TestMainPage1:
     # вызываем фикстуру в тесте, передав ее как параметр
@@ -45,9 +45,12 @@ class TestMainPage1:
         browser.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
         print("finish test4")
 
+
+
+
 # (venv) svitlana@svitlana-HP-ProBook-455-G1:~/Projects/Automation-Testing-Course/session3/lesson4$
 # $ pytest -s -v test_fixture1_5_scope_function.py
-
+# 
 # ========================== test session starts ============================
 # platform linux -- Python 3.8.10, pytest-6.2.5, py-1.11.0, pluggy-1.0.0 -- /home/svitlana/Projects/Automation-Testing-Course/venv/bin/python
 # cachedir: .pytest_cache
@@ -84,3 +87,4 @@ class TestMainPage1:
 #
 #
 # ===================== 4 passed in 29.43s ===========================
+
