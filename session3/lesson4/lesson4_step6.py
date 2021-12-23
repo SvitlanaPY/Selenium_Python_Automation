@@ -4,7 +4,7 @@
 При описании фикстуры можно указать дополнительный параметр autouse=True,
 который укажет, что фикстуру нужно запустить для каждого теста даже без явного вызова:
 
-test_fixture_autouse.py
+test_fixture1_6_autouse.py
 
 
 import pytest
@@ -77,7 +77,7 @@ link = "http://selenium1py.pythonanywhere.com/"
 
 
 @pytest.fixture
-def browser_():
+def browser():
     print("\nstart browser for test..")
     browser = webdriver.Chrome()
     yield browser
