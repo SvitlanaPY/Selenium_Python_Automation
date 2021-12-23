@@ -1,9 +1,9 @@
 # параметр autouse=True, укажет,
 # что фикстуру нужно запустить для каждого теста даже без явного вызова:
 
-from selenium.webdriver.common.by import By
 import pytest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 link = "http://selenium1py.pythonanywhere.com/"
 
