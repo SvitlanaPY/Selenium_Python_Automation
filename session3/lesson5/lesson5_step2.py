@@ -20,8 +20,7 @@ def browser():
     print("\nquit browser..")
     browser.quit()
 
-
-class TestMainPage1():
+class TestMainPage1:
 
     @pytest.mark.smoke
     def test_guest_should_see_login_link(self, browser):
@@ -42,7 +41,10 @@ pytest -s -v -m smoke test_fixture8.py
 
 PytestUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
     PytestUnknownMarkWarning,
-Это предупреждение появилось потому, что в последних версиях PyTest настоятельно рекомендуется регистрировать метки явно перед использованием. Это, например, позволяет избегать опечаток, когда вы можете ошибочно пометить ваш тест несуществующей меткой, и он будет пропускаться при прогоне тестов.
+Это предупреждение появилось потому, что в последних версиях PyTest
+настоятельно рекомендуется регистрировать метки явно перед использованием.
+Это, например, позволяет избегать опечаток, когда вы можете ошибочно пометить ваш тест несуществующей меткой,
+и он будет пропускаться при прогоне тестов.
 
 Как же регистрировать метки?
 Создайте файл pytest.ini в корневой директории вашего тестового проекта и добавьте в файл следующие строки:
@@ -55,11 +57,43 @@ markers =
 
 Снова запустите тесты:
 
-pytest -s -v -m smoke test_fixture8.py
+pytest -s -v -m smoke <file name>.py
 Теперь предупреждений быть не должно.
-
-
 
 Так же можно маркировать целый тестовый класс.
 В этом случае маркировка будет применена ко всем тестовым методам, входящим в класс.
 """
+import pytest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+link = "http://selenium1py.pythonanywhere.com/"
+
+@pytest.fixture
+def browser():
+    print("\nstart browser for test..")
+    browser = webdriver.Chrome()
+    yield browser
+    print("\nquit browser..")
+    browser.quit()
+
+# @pytest.mark.critical   - mark for whole class
+class TestMainPage1:
+    def test_guest_should_see_login_link1(self, browser):
+        browser.get(link)
+        browser.find_element(By.CSS_SELECTOR, "#login_link")
+
+    @pytest.mark.smoke   # - mark for this current test
+    def test_guest_should_see_login_link2(self, browser):
+        browser.get(link)
+        browser.find_element(By.CSS_SELECTOR, "#login_link")
+
+    @pytest.mark.regression   # - mark for this current test
+    def test_guest_should_see_basket_link_on_the_main_page1(self, browser):
+        browser.get(link)
+        browser.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
+
+    @pytest.mark.regression   # - mark for this current test
+    def test_guest_should_see_basket_link_on_the_main_page2(self, browser):
+        browser.get(link)
+        browser.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
