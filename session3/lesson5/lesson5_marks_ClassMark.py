@@ -31,4 +31,4 @@ class TestMainPage1:
         browser.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
 
 
-# $pytest -v -s -m critical <file name>.py   - run tests with 'critical' mark
+# $pytest -v -s -m critical <file name>.py   # - run tests with 'critical' mark
