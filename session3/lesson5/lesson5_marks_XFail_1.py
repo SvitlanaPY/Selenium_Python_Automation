@@ -3,6 +3,7 @@
 # Когда баг починят, мы это узнаем, так как теперь тест будет отмечен как XPASS
 # (“unexpectedly passing” — неожиданно проходит).
 # После этого маркировку xfail для теста можно удалить.
+
 # $ pytest -v lesson5_marks_XFail_1.py
 
 import pytest
