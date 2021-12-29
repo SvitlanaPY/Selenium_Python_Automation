@@ -1,5 +1,6 @@
 """
 Задание: переход на новую вкладку
+
 В этом задании после нажатия кнопки страница откроется в новой вкладке,
 нужно переключить WebDriver на новую вкладку и решить в ней задачу.
 
@@ -32,7 +33,7 @@ try:
     browser.get(link)
 
     # Нажимаем на кнопку "I want to go on a magical journey!"
-    button = browser.find_element_by_xpath('//button[@class="trollface btn btn-primary"]')
+    button = browser.find_element(By.XPATH, '//button[@class="trollface btn btn-primary"]')
     button.click()
 
     # узнаем имя новой вкладки
@@ -42,7 +43,7 @@ try:
     browser.switch_to.window(window_name)
 
     # ищим число "х" и записываем в переменную "num1_" текст из элемента "num1"
-    num1 = browser.find_element_by_xpath('//span[@id="input_value"]')
+    num1 = browser.find_element(By.XPATH, '//span[@id="input_value"]')
     num1_ = int(num1.text)
     print(num1_)
 
@@ -51,11 +52,11 @@ try:
     print("calc_num1_= ", calc_num1_)
 
     # находим текстовое поле и вводим значение 'calc_num1_' в текстовое поле
-    input1 = browser.find_element_by_xpath('//input[@class="form-control" and @id="answer" and @required]')
+    input1 = browser.find_element(By.XPATH, '//input[@class="form-control" and @id="answer" and @required]')
     input1.send_keys(calc_num1_)
 
     # Нажимаем на кнопку "submit"
-    button = browser.find_element_by_xpath('//button[@class="btn btn-primary" and @type="submit"]')
+    button = browser.find_element(By.XPATH, '//button[@class="btn btn-primary" and @type="submit"]')
     button.click()
 
 finally:

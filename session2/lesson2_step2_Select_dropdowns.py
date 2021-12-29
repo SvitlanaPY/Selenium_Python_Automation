@@ -1,5 +1,6 @@
 """
 Работа со списками
+
 На веб-страницах мы также встречаем раскрывающиеся (выпадающие) списки.
 У таких списков есть несколько важных особенностей:
 У каждого элемента списка обычно есть уникальное значение атрибута value
@@ -54,6 +55,7 @@ select.select_by_value("1") # ищем элемент с текстом "Python"
 from selenium import webdriver
 import time
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
 
 def summa(values):
     return sum(values)
@@ -64,10 +66,10 @@ try:
     browser = webdriver.Chrome()
     browser.get(link)
 
-    num1 = browser.find_element_by_xpath('//span[@id="num1"]')
+    num1 = browser.find_element(By.XPATH, '//span[@id="num1"]')
     num1_ = int(num1.text)
     print(num1_)
-    num2 = browser.find_element_by_xpath('//span[@id="num2"]')
+    num2 = browser.find_element(By.XPATH, '//span[@id="num2"]')
     num2_ = int(num2.text)
     print(num2_)
 
@@ -75,7 +77,7 @@ try:
     summ = summa(values)
     print('summa=', summ)
 
-    select = Select(browser.find_element_by_tag_name("select"))
+    select = Select(browser.find_element(By.TAG_NAME, "select"))
     select.select_by_value(str(summ))  # ищем элемент в списке, равный сумме
 
     # browser.find_element_by_tag_name("select").click()
@@ -83,7 +85,7 @@ try:
     # Или так:
     # browser.find_element_by_css_selector("[value='1']").click()
 
-    button = browser.find_element_by_xpath('//button[@class="btn btn-default" and text()="Submit"]')
+    button = browser.find_element(By.XPATH, '//button[@class="btn btn-default" and text()="Submit"]')
     button.click()
 
 finally:

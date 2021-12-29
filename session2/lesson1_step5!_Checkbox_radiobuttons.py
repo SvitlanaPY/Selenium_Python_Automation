@@ -34,6 +34,7 @@ def calc(x):
 вы увидите окно с числом.
 Скопируйте его в поле ниже.
 """
+
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 import time
@@ -46,7 +47,6 @@ def calc(value):
 
 
 try:
-
     # инициализируем драйвер браузера. После этой команды вы должны увидеть новое открытое окно браузера
     # (открытие браузера)
     browser = webdriver.Chrome()

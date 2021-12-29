@@ -1,5 +1,6 @@
 """
 Задание: Про Exceptions
+
 Теперь мы знаем, как настроить ожидание поиска элемента.
 Во время поиска WebDriver каждые 0.5 секунды проверяет, появился ли нужный элемент в DOM-модели браузера
 (Document Object Model — «объектная модель документа», интерфейс для доступа к HTML-содержимому сайта).
@@ -22,6 +23,7 @@
 Ответ: NoSuchElementException
 """
 
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 import time
 
@@ -32,7 +34,7 @@ try:
 
     browser.get("http://suninjuly.github.io/cats.html")
 
-    button = browser.find_element_by_id("button")
+    button = browser.find_element(By.ID, "button")
     button.click()
 
 finally:

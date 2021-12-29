@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 import time
 import math
@@ -7,7 +8,7 @@ try:
     browser = webdriver.Chrome()
     browser.get(link)
 
-    people_radio = browser.find_element_by_id("peopleRule")
+    people_radio = browser.find_element(By.ID, "peopleRule")
     people_radio_checked = people_radio.get_attribute("checked")
     print("value of people radio: ", people_radio_checked)
     # value of people radio:  true
@@ -15,7 +16,7 @@ try:
     # або можна записати ще іншим способом:
     # assert people_radio_checked is not None, "People radio is not selected by default"
 
-    robots_radio = browser.find_element_by_id("robotsRule")
+    robots_radio = browser.find_element(By.ID, "robotsRule")
     robots_radio_checked = robots_radio.get_attribute("checked")
     print("value of robots radio: ", robots_radio_checked)
     # value of robots radio:  None

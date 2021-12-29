@@ -35,7 +35,7 @@ expected 11, got 15
 """
 
 # Run test in Terminal using command:
-# svitlana@svitlana-HP-ProBook-455-G1:~/PyTest/environments/selenium_course/session3$ python3 lesson2_step8.py
+# svitlana@svitlana-HP-ProBook-455-G1:~/PyTest/environments/selenium_course/session3$ python3 lesson2_step8!_load_files.py
 # if test passed - no message appears
 # if test failed: AssertionError: expected 8, got 11
 

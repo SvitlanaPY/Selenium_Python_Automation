@@ -21,6 +21,7 @@ from selenium import webdriver
 import math
 import time
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
 
 
 def summa(values):
@@ -32,10 +33,10 @@ try:
     browser = webdriver.Chrome()
     browser.get(link)
 
-    num1 = browser.find_element_by_xpath('//span[@id="num1"]')
+    num1 = browser.find_element(By.XPATH, '//span[@id="num1"]')
     num1_ = int(num1.text)
     print(num1_)
-    num2 = browser.find_element_by_xpath('//span[@id="num2"]')
+    num2 = browser.find_element(By.XPATH, '//span[@id="num2"]')
     num2_ = int(num2.text)
     print(num2_)
 
@@ -43,10 +44,10 @@ try:
     summ = summa(values)
     print('summa=', summ)
 
-    select = Select(browser.find_element_by_tag_name("select"))
+    select = Select(browser.find_element(By.TAG_NAME, "select"))
     select.select_by_value(str(summ))  # ищем элемент в списке, равный сумме
 
-    button = browser.find_element_by_xpath('//button[@class="btn btn-default" and text()="Submit"]')
+    button = browser.find_element(By.XPATH, '//button[@class="btn btn-default" and text()="Submit"]')
     button.click()
 
 finally:
