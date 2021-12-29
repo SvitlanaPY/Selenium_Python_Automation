@@ -39,6 +39,7 @@ from selenium import webdriver
 import time
 
 try:
+    # инициализируем драйвер браузера. После этой команды вы должны увидеть новое открытое окно браузера
     browser = webdriver.Chrome()
     # говорим WebDriver искать каждый элемент в течение 5 секунд
     browser.implicitly_wait(5)

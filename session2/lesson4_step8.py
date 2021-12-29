@@ -1,6 +1,8 @@
 """
 Задание: ждем нужный текст на странице
-Попробуем теперь написать программу, которая будет бронировать нам дом для отдыха по строго заданной цене. Более высокая цена нас не устраивает, а по более низкой цене объект успеет забронировать кто-то другой.
+
+Попробуем теперь написать программу, которая будет бронировать нам дом для отдыха по строго заданной цене.
+Более высокая цена нас не устраивает, а по более низкой цене объект успеет забронировать кто-то другой.
 
 В этой задаче вам нужно написать программу, которая будет выполнять следующий сценарий:
 
@@ -35,12 +37,12 @@ try:
     # Дождаться, когда цена дома уменьшится до $100 (ожидание нужно установить не меньше 12 секунд)
     WebDriverWait(browser, 12).until(EC.text_to_be_present_in_element((By.ID, "price"), "100"))
     # Найти и нажать на кнопку "Book"
-    button = browser.find_element_by_xpath('//button[@id="book" and text()="Book"]')
+    button = browser.find_element(By.XPATH, '//button[@id="book" and text()="Book"]')
     # button = browser.find_element(By.ID, "book")
     button.click()
 
     # ищем элемент "х"
-    num1 = browser.find_element_by_xpath('//span[@id="input_value"]')
+    num1 = browser.find_element(By.XPATH, '//span[@id="input_value"]')
 
     # записываем в переменную "num1_" значение/текст найденного "х"
     num1_ = int(num1.text)
@@ -51,11 +53,11 @@ try:
     print("calc_num1_= ", calc_num1_)
 
     # находим текстовое поле и вводим значение 'calc_num1_' в текстовое поле
-    input1 = browser.find_element_by_xpath('//input[@class="form-control" and @id="answer" and @required]')
+    input1 = browser.find_element(By.XPATH, '//input[@class="form-control" and @id="answer" and @required]')
     input1.send_keys(calc_num1_)
 
     # Нажимаем на кнопку "submit"
-    button = browser.find_element_by_xpath('//button[@class="btn btn-primary" and @id="solve" and @type="submit"]')
+    button = browser.find_element(By.XPATH, '//button[@class="btn btn-primary" and @id="solve" and @type="submit"]')
     # button = browser.find_element(By.ID, "solve")
     button.click()
 
