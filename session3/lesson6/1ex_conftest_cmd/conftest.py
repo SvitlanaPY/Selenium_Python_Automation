@@ -1,23 +1,22 @@
 import pytest
 from selenium import webdriver
 
-# Можно задать значение параметра по умолчанию,
-# чтобы в командной строке необязательно было указывать параметр --browser_name,
-# например, так:
+
 def pytest_addoption(parser):
     parser.addoption(
         "--browser_name",
         action="store",
-        # default=None,
-        default="chrome",
+        default=None,
+        # default="chrome",
         help="Choose browser: chrome or firefox"
     )
 
 
 @pytest.fixture(scope="function")
 def browser(request):
+    # Логика обработки командной строки.
+    # Для запроса значения параметра мы можем вызвать команду:
     browser_name = request.config.getoption("--browser_name")
-    # browser = None
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
         browser = webdriver.Chrome()
