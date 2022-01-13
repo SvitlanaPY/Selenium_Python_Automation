@@ -1,3 +1,8 @@
+https://habr.com/ru/post/453968/
+
+
+
+
 Тестирование с помощью PyTest
 Статья про PyTest: https://habr.com/ru/post/269759/
 Документация PyTest: https://docs.pytest.org/en/latest/
@@ -28,3 +33,10 @@ https://habr.com/ru/post/426699/
 Дополнительные материалы про фикстуры:
 https://habr.com/ru/company/yandex/blog/242795/
 https://docs.pytest.org/en/stable/fixture.html
+
+Conftest.py и передача параметров в командной строке:
+(как настраивать тестовые окружения с помощью передачи параметров через командную строку):
+https://docs.pytest.org/en/latest/example/simple.html?highlight=addoption
+
+
+
