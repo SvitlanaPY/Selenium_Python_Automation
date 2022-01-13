@@ -1,3 +1,5 @@
+# $ pytest -s -v s3_lesson6_param_1_1.py
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
