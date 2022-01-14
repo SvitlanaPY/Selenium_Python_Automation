@@ -19,5 +19,5 @@ def test_guest_should_see_login_link(browser):
 #
 # А теперь запустим тесты на Chrome.
 # Для етого при запуске тестов нужно указать параметр --browser_name=chrome:
-# pytest -s -v --browser_name=chrome test_parser.py
+# $ pytest -s -v --browser_name=chrome test_parser.py
 # мы должны увидеть, как тесты запустятся в браузере Chrome.
