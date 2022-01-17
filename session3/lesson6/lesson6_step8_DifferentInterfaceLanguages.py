@@ -1,6 +1,5 @@
 """
 Запуск автотестов для разных языков интерфейса
-
 Цель: научиться запускать автотесты для разных локалей, т.е. для разных языков интерфейсов.
 
 Мы уже запускали автотесты для разных языков в одном из предыдущих шагов,
@@ -18,16 +17,21 @@ s3_lesson6_InterfaceLangs.png
 
 Чтобы указать язык браузера с помощью WebDriver,
 используйте класс Options и метод add_experimental_option, как указано в примере ниже:
+
 from selenium.webdriver.chrome.options import Options
 
 options = Options()
 options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
 browser = webdriver.Chrome(options=options)
+
+
 Для Firefox объявление нужного языка будет выглядеть немного иначе:
 
 fp = webdriver.FirefoxProfile()
 fp.set_preference("intl.accept_languages", user_language)
 browser = webdriver.Firefox(firefox_profile=fp)
+
+
 В конструктор webdriver.Chrome или webdriver.Firefox вы можете добавлять разные аргументы,
 расширяя возможности тестирования ваших веб-приложений:
 можно указывать прокси-сервер для контроля сетевого трафика или запускать разные версии браузера,
@@ -35,3 +39,17 @@ browser = webdriver.Firefox(firefox_profile=fp)
 
 Предполагаем, что эти возможности вам понадобятся позже и вы сами сможете найти настройки для этих задач.
 """
+
+# Chrome
+from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
+
+options = Options()
+options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
+browser = webdriver.Chrome(options=options)
+
+
+# Firefox
+fp = webdriver.FirefoxProfile()
+fp.set_preference("intl.accept_languages", user_language)
+browser = webdriver.Firefox(firefox_profile=fp)
